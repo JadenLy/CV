@@ -6,3 +6,12 @@ The codes are generally implemented PyTorch. I will post the whole script once I
 
 Due to the fact that I only work on my MacBook Pro, which has no GPU support, I will only include the GPU as an option in the front. Please change the setting if you would like to use my script. 
 
+## Process:
+- [x] LeNet
+- [ ] AlexNet
+- [ ] Inception
+- [ ] VGG
+- [ ] ResNet
+- [ ] R-CNN
+- [ ] Fast RCNN
+- [ ] Faster RCNN
