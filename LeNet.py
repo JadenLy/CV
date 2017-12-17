@@ -6,6 +6,8 @@ import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
 
+# This is an implementation of LeNet on MNIST with PyTorch
+
 
 # Parameters
 batch_size = 64
@@ -24,14 +26,6 @@ else:
 
 transform = transforms.Compose([transforms.ToTensor(),
                                 transforms.Normalize((0.1307,), (0.3081,))])
-
-
-
-# trainLoad = torch.utils.data.DataLoader(
-#     torchvision.datasets.MNIST('./data', train=True, download=True,
-#                    transform=),
-#     batch_size=batch_size, shuffle=True, **kwargs)
-
 
 trainData = torchvision.datasets.MNIST(root='./data', train=True, download=True, transform=transform)
 trainLoad = torch.utils.data.DataLoader(trainData, batch_size=batch_size, shuffle=True, **kwargs)
@@ -55,7 +49,7 @@ class Net(nn.Module):
         x = F.relu(self.fc1(x))
         x = self.fc2(x)
 
-        return F.softmax(x)
+        return F.log_softmax(x)
 
 
 model = Net()
@@ -63,35 +57,42 @@ model = Net()
 # Optimization
 optimizer = optim.SGD(model.parameters(), lr=lr, momentum=momentum)
 
-# train and test the network
-def train_test(epoch):
+
+# train the network and test the model after each
+def train_test():
     model.train()
+    iter = 0
 
-    for i, data in enumerate(trainLoad):
-        input, label = data
-        input, label = Variable(input), Variable(label)
-        optimizer.zero_grad()
-        output = model(input)
-        train_loss = F.nll_loss(output, label)
-        train_loss.backward()
-        optimizer.step()
+    for epoch in range(num_epoch):
 
-        test_loss = 0
-        right = 0
+        for i, data in enumerate(trainLoad):
+            input, label = data
+            input, label = Variable(input), Variable(label)
+            optimizer.zero_grad()
+            output = model(input)
+            train_loss = F.nll_loss(output, label)
+            train_loss.backward()
+            optimizer.step()
+			
+			# Test on the test set each 100 iterations. 						
+            if iter % 100 == 0:
+                test_loss = 0
+                right = 0
 
-        for data, target in testLoad:
-            data, target = Variable(data), Variable(target)
-            result = model(data)
-            test_loss += F.nll_loss(result, target, size_average=False).data[0]
-            pred = result.data.max(1, keepdim=True)[1]
-            right += pred.eq(target.data.view_as(pred)).sum()
+                for data, target in testLoad:
+                    data, target = Variable(data), Variable(target)
+                    result = model(data)
+                    test_loss += F.nll_loss(result, target, size_average=False).data[0]
+                    pred = result.data.max(1, keepdim=True)[1]
+                    right += pred.eq(target.data.view_as(pred)).sum()
+				
+				# print out the result				
+                print("Iteration {}: Training Loss = {}, Testing Loss = {}, Test Accuracy = {}%".format(iter,
+                                                train_loss.data.numpy()[0], test_loss, 100. * right / len(testLoad.dataset)))
 
-        if i % 100 == 0:
-            print("Iteration {}: Training Loss: {}"
-                  "              Testing Loss: {}"
-                  "              Test Accuracy: {}%".format(i, train_loss, test_loss, 100. * right/len(testLoad.dataset)))
+            iter += 1
 
 
-# Start the training
-for epoch in range(num_epoch):
-    train_test(epoch)
+# Begin Training
+train_test()
+
