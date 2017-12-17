@@ -15,3 +15,10 @@ Due to the fact that I only work on my MacBook Pro, which has no GPU support, I 
 - [ ] R-CNN
 - [ ] Fast RCNN
 - [ ] Faster RCNN
+
+## Required Package
+[torch](https://github.com/pytorch/pytorch)
+
+[torchvision](https://github.com/pytorch/vision/tree/master/torchvision)
+
+Please refer to [PyTorch](https://github.com/pytorch/pytorch) and  for assistance on installation, and [PyTorch Documentation](http://pytorch.org/docs/0.3.0/) for further documentation on PyTorch. 
