@@ -81,6 +81,7 @@ class AlexNet(nn.Module):
 
         return x
 
+# Train and test the model
 def train_test(model, lr, momentum, weight_decay, trainLoad, testLoad, gamma, max_iter, iter_step):
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=momentum, weight_decay=weight_decay)
     model.train()
@@ -116,7 +117,7 @@ def train_test(model, lr, momentum, weight_decay, trainLoad, testLoad, gamma, ma
                         train_loss.data.numpy()[0], test_loss, 100. * right / len(testLoad.dataset())))
             iter += 1
 
-
+# Adjust the learning rate of optimizer by a factor of gamma
 def adjust_lr(optimizer, gamma):
     for lr in optimizer.param_groups:
         lr['lr'] /= gamma
