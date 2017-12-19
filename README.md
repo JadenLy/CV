@@ -8,7 +8,7 @@ Due to the fact that I only work on my MacBook Pro, which has no GPU support, I 
 
 ## Process:
 - [x] LeNet
-- [ ] AlexNet
+- [x] AlexNet
 - [ ] Inception
 - [ ] VGG
 - [ ] ResNet
