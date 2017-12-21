@@ -30,7 +30,7 @@ else:
 
 def main():
     trainLoad, testLoad = prepare(batch_size, trainDirectory, valDirectory, kwargs)
-    model = ResNet()
+    model = ResNet([3, 4, 6, 3])
     train_test(model, lr, momentum, weight_decay, trainLoad, testLoad, gamma, max_iter, iter_step)
 
 # Load data
