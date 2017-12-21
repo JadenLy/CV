@@ -9,10 +9,8 @@ Due to the fact that I only work on my MacBook Pro, which has no GPU support, I 
 ## Process:
 - [x] LeNet
 - [x] AlexNet
+- [x] ResNet
 - [ ] Inception
-- [ ] VGG
-- [ ] ResNet
-- [ ] R-CNN
 - [ ] Fast RCNN
 - [ ] Faster RCNN
 
