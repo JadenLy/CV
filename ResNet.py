@@ -103,7 +103,7 @@ class ResNet(nn.Module):
 
         return x
 
-
+# Create the Block structure in ResNet
 class BottleNeck(nn.Module):
     def __init__(self, input, output, stride=1, downsample=None):
         super(BottleNeck, self).__init__()
@@ -137,7 +137,7 @@ class BottleNeck(nn.Module):
 
         return out
 
-
+# Train the model and test with test data
 def train_test(model, lr, momentum, weight_decay, trainLoad, testLoad, gamma, max_iter, iter_step):
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=momentum, weight_decay=weight_decay)
     model.train()
