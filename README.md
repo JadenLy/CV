@@ -10,9 +10,7 @@ Due to the fact that I only work on my MacBook Pro, which has no GPU support, I 
 - [x] LeNet
 - [x] AlexNet
 - [x] ResNet
-- [ ] Inception
-- [ ] Fast RCNN
-- [ ] Faster RCNN
+- [x] Inception
 
 ## Required Package
 [torch](https://github.com/pytorch/pytorch)
