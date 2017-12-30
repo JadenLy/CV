@@ -6,7 +6,13 @@ import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
 
-# This is an implementation of AlexNet on IMAGENET with PyTorch
+"""
+This is an implementation of AlexNet on IMAGENET with PyTorch defined in
+
+Alex Krizhevsky Ilya Sutskever Geoffrey E. Hinton (2012
+ImageNet Classification with Deep Convolutional Neural Networks
+"""
+
 
 # Parameters
 lr = 0.1
