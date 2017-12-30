@@ -6,8 +6,13 @@ import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
 
-# This is an implementation of Inception-v3 on IMAGENET with PyTorch
+"""
+This is an implementation of Inception-v3 on IMAGENET with PyTorch
 
+Christian Szegedy and Vincent Vanhoucke and Sergey Ioffe and Jonathon Shlens and Zbigniew Wojna (2015)
+Rethinking the Inception Architecture for Computer Vision
+arXiv preprint arXiv:1512.00567
+"""
 
 # Parameter
 lr = 0.01
