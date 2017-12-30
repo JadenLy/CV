@@ -6,8 +6,13 @@ import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
 
-# This is an implementation of LeNet on MNIST with PyTorch
+"""
+This is an implementation of LeNet on MNIST with PyTorch as defined in
 
+Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner (1998)
+Gradient-based learning applied to document recognition.
+IEEE, Nov 1998
+"""
 
 # Parameters
 batch_size = 64
