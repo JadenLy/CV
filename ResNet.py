@@ -7,8 +7,13 @@ import torchvision
 import torchvision.transforms as transforms
 import math
 
-# This is an implementation of ResNet-50 on IMAGENET with PyTorch
+"""
+This is an implementation of ResNet-50 on IMAGENET with PyTorch as defined in
 
+Kaiming He and Xiangyu Zhang and Shaoqing Ren and Jian Sun
+Deep Residual Learning for Image Recognition
+arXiv preprint arXiv:1512.03385
+"""
 
 # Parameter
 lr = 0.01
