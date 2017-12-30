@@ -10,7 +10,7 @@ import math
 """
 This is an implementation of ResNet-50 on IMAGENET with PyTorch as defined in
 
-Kaiming He and Xiangyu Zhang and Shaoqing Ren and Jian Sun
+Kaiming He and Xiangyu Zhang and Shaoqing Ren and Jian Sun (2015)
 Deep Residual Learning for Image Recognition
 arXiv preprint arXiv:1512.03385
 """
